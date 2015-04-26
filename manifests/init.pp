@@ -45,9 +45,9 @@ class java (
         }
 
 
-        exec { 'download oracle jce 7 extended policy files':
-          command  => 'curl -L -b \"oraclelicense=a\" http://download.oracle.com/otn-pub/java/jce/7/UnlimitedJCEPolicyJDK7.zip > UnlimitedJCEPolicyJDK7.zip',
-        }
+        #exec { 'download oracle jce 7 extended policy files':
+        #  command  => 'curl -L -b \"oraclelicense=a\" http://download.oracle.com/otn-pub/java/jce/7/UnlimitedJCEPolicyJDK7.zip > UnlimitedJCEPolicyJDK7.zip',
+        #}
 
         package {
           "jre-7u${java7_update_version}-macosx-x64.dmg":
@@ -73,7 +73,7 @@ class java (
         }
 
         file { "${sec_dir}/local_policy.jar":
-          source  => 'puppet:///modules/java/local_policy.jar',
+          source  => 'puppet:///modules/java/java7/local_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
@@ -81,7 +81,7 @@ class java (
         }
 
         file { "${sec_dir}/US_export_policy.jar":
-          source  => 'puppet:///modules/java/US_export_policy.jar',
+          source  => 'puppet:///modules/java/java7/US_export_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
@@ -102,9 +102,9 @@ class java (
           command  => "curl -L -b \"oraclelicense=a\" ${  base_download_url}/jre-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jre-8u${java8_update_version}-macosx-x64.dmg",
         }
 
-        exec { 'download oracle jce 8 extended policy files':
-          command  => 'curl -L -b \"oraclelicense=a\" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip > /var/tmp/jce_policy-8.zip',
-        }
+        #exec { 'download oracle jce 8 extended policy files':
+        #  command  => 'curl -L -b \"oraclelicense=a\" http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip > /var/tmp/jce_policy-8.zip',
+        #}
 
         package {
           "jre-8u${java8_update_version}-macosx-x64.dmg":
@@ -130,7 +130,7 @@ class java (
         }
 
         file { "${sec_dir}/local_policy.jar":
-          source  => 'puppet:///modules/java/local_policy.jar',
+          source  => 'puppet:///modules/java/java8/local_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
@@ -138,7 +138,7 @@ class java (
         }
 
         file { "${sec_dir}/US_export_policy.jar":
-          source  => 'puppet:///modules/java/US_export_policy.jar',
+          source  => 'puppet:///modules/java/java8/US_export_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
