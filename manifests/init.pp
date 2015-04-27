@@ -10,7 +10,7 @@ class java (
   $java7_update_version        = '79',
   $java_preference             = '8',
   $java8_update_version        = '45',
-  $base_download_url       = 'http://download.oracle.com/otn-pub/java/jdk/'
+  $base_download_url           = 'http://download.oracle.com/otn-pub/java/jdk'
 ) {
   include boxen::config
 
