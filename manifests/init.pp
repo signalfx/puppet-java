@@ -1,5 +1,7 @@
 #
-# curl -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jdk/8u40-b27/jdk-8u40-macosx-x64.dmg -O
+# Example URLs:
+# curl -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-macosx-x64.dmg -O
+#
 #
 # Public: installs java jre-7u51 and JCE unlimited key size policy files
 #
@@ -39,11 +41,11 @@ class java (
       if (versioncmp($::java_version, '1.8.0') < 0) {
 
         exec { 'download oracle jdk 7':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/7u-${java7_build_version}/jdk-7u${java7_update_version}-macosx-x64.dmg > /var/tmp/jdk-7u${java7_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/7u${java7_update_version}-${java7_build_version}/jdk-7u${java7_update_version}-macosx-x64.dmg > /var/tmp/jdk-7u${java7_update_version}-macosx-x64.dmg",
         }
 
         exec { 'download oracle jre 7':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/7u-${java7_build_version}/jre-7u${java7_update_version}-macosx-x64.dmg > /var/tmp/jre-7u${java7_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/7u-${java7_update_version}-${java7_build_version}/jre-7u${java7_update_version}-macosx-x64.dmg > /var/tmp/jre-7u${java7_update_version}-macosx-x64.dmg",
         }
 
 
@@ -97,11 +99,11 @@ class java (
       if (versioncmp($::java_version, '1.8.0') < 0) {
 
         exec { 'download oracle jdk 8':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u-${java8_build_version}/jdk-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jdk-8u${java8_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/jdk-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jdk-8u${java8_update_version}-macosx-x64.dmg",
         }
 
         exec { 'download oracle jre 8':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u-${java8_build_version}/jre-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jre-8u${java8_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u-${java8_update_version}-${java8_build_version}/jre-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jre-8u${java8_update_version}-macosx-x64.dmg",
         }
 
         #exec { 'download oracle jce 8 extended policy files':
