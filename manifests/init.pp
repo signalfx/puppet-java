@@ -45,7 +45,7 @@ class java (
         }
 
         exec { 'download oracle jre 7':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/7u-${java7_update_version}-${java7_build_version}/jre-7u${java7_update_version}-macosx-x64.dmg > /var/tmp/jre-7u${java7_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/7u${java7_update_version}-${java7_build_version}/jre-7u${java7_update_version}-macosx-x64.dmg > /var/tmp/jre-7u${java7_update_version}-macosx-x64.dmg",
         }
 
 
