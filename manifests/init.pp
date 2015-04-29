@@ -103,7 +103,7 @@ class java (
         }
 
         exec { 'download oracle jre 8':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u-${java8_update_version}-${java8_build_version}/jre-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jre-8u${java8_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/jre-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jre-8u${java8_update_version}-macosx-x64.dmg",
         }
 
         #exec { 'download oracle jce 8 extended policy files':
