@@ -20,7 +20,8 @@ class java (
 
   $jdk7_dir       = "/Library/Java/JavaVirtualMachines/jdk1.7.0_${java7_update_version}.jdk"
   $jdk8_dir       = "/Library/Java/JavaVirtualMachines/jdk1.8.0_${java8_update_version}.jdk"
-  $sec_dir        = "${::jdk_dir}/Contents/Home/jre/lib/security"
+  $sec7_dir        = "${::jdk7_dir}/Contents/Home/jre/lib/security"
+  $sec8_dir        = "${::jdk8_dir}/Contents/Home/jre/lib/security"
   $wrapper        = "${boxen::config::bindir}/java"
 
   if ((versioncmp($::macosx_productversion_major, '10.10') >= 0) and
@@ -68,7 +69,7 @@ class java (
 
         # Allow 'large' keys locally.
         # http://www.ngs.ac.uk/tools/jcepolicyfiles
-        file { $sec_dir:
+        file { $sec7_dir:
           ensure  => 'directory',
           owner   => 'root',
           group   => 'wheel',
@@ -76,20 +77,20 @@ class java (
           require => Package['java']
         }
 
-        file { "${sec_dir}/local_policy.jar":
+        file { "${sec7_dir}/local_policy.jar":
           source  => 'puppet:///modules/java/java7/local_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
-          require => File[$sec_dir]
+          require => File[$sec7_dir]
         }
 
-        file { "${sec_dir}/US_export_policy.jar":
+        file { "${sec7_dir}/US_export_policy.jar":
           source  => 'puppet:///modules/java/java7/US_export_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
-          require => File[$sec_dir]
+          require => File[$sec7_dir]
         }
       }
     }
@@ -125,7 +126,7 @@ class java (
 
         # Allow 'large' keys locally.
         # http://www.ngs.ac.uk/tools/jcepolicyfiles
-        file { $sec_dir:
+        file { $sec8_dir:
           ensure  => 'directory',
           owner   => 'root',
           group   => 'wheel',
@@ -133,20 +134,20 @@ class java (
           require => Package['java']
         }
 
-        file { "${sec_dir}/local_policy.jar":
+        file { "${sec8_dir}/local_policy.jar":
           source  => 'puppet:///modules/java/java8/local_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
-          require => File[$sec_dir]
+          require => File[$sec8_dir]
         }
 
-        file { "${sec_dir}/US_export_policy.jar":
+        file { "${sec8_dir}/US_export_policy.jar":
           source  => 'puppet:///modules/java/java8/US_export_policy.jar',
           owner   => 'root',
           group   => 'wheel',
           mode    => '0664',
-          require => File[$sec_dir]
+          require => File[$sec8_dir]
         }
       }
     }

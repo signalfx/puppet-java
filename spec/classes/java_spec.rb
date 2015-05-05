@@ -9,7 +9,7 @@ describe "java" do
         :java_preference        => '7',
         :java7_update_version   => '79',
         :java8_update_version   => '45',
-        :base_download_url  => 'http://download.oracle.com/otn-pub/java/jdk/',
+        :base_download_url      => 'http://download.oracle.com/otn-pub/java/jdk/',
       }
     }
 
@@ -37,6 +37,7 @@ describe "java" do
         :source  => 'puppet:///modules/java/java.sh',
         :mode    => '0755'
       })
+
     end
   end
 
