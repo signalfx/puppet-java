@@ -1,28 +1,23 @@
-#
-# Example URLs:
-# curl -L -b "oraclelicense=a" http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-macosx-x64.dmg -O
-#
-#
-# Public: installs java jre-7u51 and JCE unlimited key size policy files
+# Public: installs Oracle Java JDK and JCE unlimited key size policy files
 #
 # Examples
 #
 #    include java
 class java (
-  $java7_update_version        = '79',
-  $java7_build_version         = 'b15',
-  $java_preference             = '8',
-  $java8_update_version        = '45',
-  $java8_build_version         = 'b14',
-  $base_download_url           = 'http://download.oracle.com/otn-pub/java/jdk'
+  $java7_update_version = '79',
+  $java7_build_version  = 'b15',
+  $java_preference      = '8',
+  $java8_update_version = '73',
+  $java8_build_version  = 'b02',
+  $base_download_url    = 'http://download.oracle.com/otn-pub/java/jdk'
 ) {
   include boxen::config
 
-  $jdk7_dir       = "/Library/Java/JavaVirtualMachines/jdk1.7.0_${java7_update_version}.jdk"
-  $jdk8_dir       = "/Library/Java/JavaVirtualMachines/jdk1.8.0_${java8_update_version}.jdk"
-  $sec7_dir        = "${jdk7_dir}/Contents/Home/jre/lib/security"
-  $sec8_dir        = "${jdk8_dir}/Contents/Home/jre/lib/security"
-  $wrapper        = "${boxen::config::bindir}/java"
+  $jdk7_dir = "/Library/Java/JavaVirtualMachines/jdk1.7.0_${java7_update_version}.jdk"
+  $jdk8_dir = "/Library/Java/JavaVirtualMachines/jdk1.8.0_${java8_update_version}.jdk"
+  $sec7_dir = "${jdk7_dir}/Contents/Home/jre/lib/security"
+  $sec8_dir = "${jdk8_dir}/Contents/Home/jre/lib/security"
+  $wrapper  = "${boxen::config::bindir}/java"
 
   if ((versioncmp($::macosx_productversion_major, '10.10') >= 0) and
     versioncmp($java7_update_version, '71') < 0)

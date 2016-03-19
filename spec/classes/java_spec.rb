@@ -8,7 +8,6 @@ describe "java" do
       {
         :java_preference        => '7',
         :java7_update_version   => '79',
-        :java8_update_version   => '45',
         :base_download_url  => 'http://download.oracle.com/otn-pub/java/jdk/',
       }
     }
@@ -45,7 +44,7 @@ describe "java" do
     let(:params) {
       {
         :java_preference       => '8',
-        :java8_update_version  => '45',
+        :java8_update_version  => '73',
         :base_download_url => 'http://download.oracle.com/otn-pub/java/jdk/',
       }
     }
@@ -56,18 +55,18 @@ describe "java" do
     end
 
     it do
-      should contain_package('jre-8u45-macosx-x64.dmg').with({
+      should contain_package('jre-8u73-macosx-x64.dmg').with({
         :ensure   => 'present',
         :alias    => 'java-jre',
         :provider => 'pkgdmg',
-        :source   => '/var/tmp/jre-8u45-macosx-x64.dmg'
+        :source   => '/var/tmp/jre-8u73-macosx-x64.dmg'
       })
 
-      should contain_package('jdk-8u45-macosx-x64.dmg').with({
+      should contain_package('jdk-8u73-macosx-x64.dmg').with({
         :ensure   => 'present',
         :alias    => 'java',
         :provider => 'pkgdmg',
-        :source   => '/var/tmp/jdk-8u45-macosx-x64.dmg'
+        :source   => '/var/tmp/jdk-8u73-macosx-x64.dmg'
       })
 
       should contain_file('/test/boxen/bin/java').with({
