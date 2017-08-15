@@ -96,11 +96,11 @@ class java (
       if (versioncmp($::java_version, '1.8.0') < 0) {
 
         exec { 'download oracle jdk 8':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/${java8_hash}/jdk-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jdk-8u${java8_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=accept-securebackup-cookie\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/${java8_hash}/jdk-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jdk-8u${java8_update_version}-macosx-x64.dmg",
         }
 
         exec { 'download oracle jre 8':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/jre-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jre-8u${java8_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=accept-securebackup-cookie\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/${java8_hash}/jre-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jre-8u${java8_update_version}-macosx-x64.dmg",
         }
 
         #exec { 'download oracle jce 8 extended policy files':
