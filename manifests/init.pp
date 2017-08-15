@@ -7,8 +7,9 @@ class java (
   $java7_update_version = '79',
   $java7_build_version  = 'b15',
   $java_preference      = '8',
-  $java8_update_version = '73',
-  $java8_build_version  = 'b02',
+  $java8_update_version = '144',
+  $java8_build_version  = 'b01',
+  $java8_hash           = '090f390dda5b47b9b721c7dfaa008135'
   $base_download_url    = 'http://download.oracle.com/otn-pub/java/jdk'
 ) {
   include boxen::config
@@ -95,7 +96,7 @@ class java (
       if (versioncmp($::java_version, '1.8.0') < 0) {
 
         exec { 'download oracle jdk 8':
-          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/jdk-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jdk-8u${java8_update_version}-macosx-x64.dmg",
+          command  => "curl -L -b \"oraclelicense=a\" ${base_download_url}/8u${java8_update_version}-${java8_build_version}/${java8_hash}/jdk-8u${java8_update_version}-macosx-x64.dmg > /var/tmp/jdk-8u${java8_update_version}-macosx-x64.dmg",
         }
 
         exec { 'download oracle jre 8':
